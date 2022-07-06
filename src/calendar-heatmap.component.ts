@@ -540,7 +540,7 @@ export class CalendarHeatmap {
       })
       .attr('fill', (d: CalendarHeatmapData) => {
         var color = d3.scaleLinear<string>()
-          .range(['#ffffff', this.color || '#ff4500'])
+          .range(['#12a17f', this.color || '#ff4500'])
           .domain([-0.15 * max_value, max_value]);
         return color(d.total) || '#ff4500';
       })
@@ -696,7 +696,7 @@ export class CalendarHeatmap {
     });
 
     var color = d3.scaleLinear<string>()
-      .range(['#ffffff', this.color])
+      .range(['#12a17f', this.color])
       .domain([-0.15 * max_value, max_value]);
 
     this.items.selectAll('.item-circle').remove();
@@ -1087,7 +1087,7 @@ export class CalendarHeatmap {
       })
       .attr('fill', (d: CalendarHeatmapDataSummary) => {
         var color = d3.scaleLinear<string>()
-          .range(['#ffffff', this.color])
+          .range(['#12a17f', this.color])
           .domain([-0.15 * max_value, max_value]);
         return color(d.value) || '#ff4500';
       })
@@ -1365,7 +1365,7 @@ export class CalendarHeatmap {
       })
       .attr('fill', (d: CalendarHeatmapDataSummary) => {
         var color = d3.scaleLinear<string>()
-          .range(['#ffffff', this.color])
+          .range(['#12a17f', this.color])
           .domain([-0.15 * max_value, max_value]);
         return color(d.value) || '#ff4500';
       })

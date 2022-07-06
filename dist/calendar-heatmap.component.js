@@ -414,7 +414,7 @@ var CalendarHeatmap = /** @class */ (function () {
         })
             .attr('fill', function (d) {
             var /** @type {?} */ color = d3.scaleLinear()
-                .range(['#12a17f', _this.color || '#ff4500'])
+                .range(['#12a17f', '#eeb93b', _this.color || '#ff4500'])
                 .domain([-0.15 * max_value, max_value]);
             return color(d.total) || '#ff4500';
         })
@@ -563,7 +563,7 @@ var CalendarHeatmap = /** @class */ (function () {
             return d.total;
         });
         var /** @type {?} */ color = d3.scaleLinear()
-            .range(['#12a17f', this.color])
+            .range(['#12a17f', '#eeb93b', this.color])
             .domain([-0.15 * max_value, max_value]);
         this.items.selectAll('.item-circle').remove();
         this.items.selectAll('.item-circle')
@@ -936,7 +936,7 @@ var CalendarHeatmap = /** @class */ (function () {
         })
             .attr('fill', function (d) {
             var /** @type {?} */ color = d3.scaleLinear()
-                .range(['#12a17f', _this.color])
+                .range(['#12a17f', '#eeb93b', _this.color])
                 .domain([-0.15 * max_value, max_value]);
             return color(d.value) || '#ff4500';
         })
@@ -1204,7 +1204,7 @@ var CalendarHeatmap = /** @class */ (function () {
         })
             .attr('fill', function (d) {
             var /** @type {?} */ color = d3.scaleLinear()
-                .range(['#12a17f', _this.color])
+                .range(['#12a17f', '#eeb93b', _this.color])
                 .domain([-0.15 * max_value, max_value]);
             return color(d.value) || '#ff4500';
         })

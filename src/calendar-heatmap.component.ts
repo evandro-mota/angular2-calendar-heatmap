@@ -541,7 +541,7 @@ export class CalendarHeatmap {
       .attr('fill', (d: CalendarHeatmapData) => {
         var color = d3.scaleLinear<string>()
           .range(['#adebad', '#a5cd65', '#eeb93b', this.color || '#ff4500'])
-          .domain([0, 8, 0.25 * max_value, 1.1 * max_value]);
+          .domain([0, 8, 0.5 * max_value, 1.1 * max_value]);
         return color(d.total) || '#ff4500';
       })
       .on('click', (d: CalendarHeatmapData) => {
@@ -697,7 +697,7 @@ export class CalendarHeatmap {
 
     var color = d3.scaleLinear<string>()
       .range(['#adebad', '#a5cd65', '#eeb93b', this.color])
-      .domain([0, 8, 0.25 * max_value, 1.1 * max_value]);
+      .domain([0, 8, 0.5 * max_value, 1.1 * max_value]);
 
     this.items.selectAll('.item-circle').remove();
     this.items.selectAll('.item-circle')
@@ -1088,7 +1088,7 @@ export class CalendarHeatmap {
       .attr('fill', (d: CalendarHeatmapDataSummary) => {
         var color = d3.scaleLinear<string>()
           .range(['#adebad', '#a5cd65', '#eeb93b', this.color])
-          .domain([0, 8, 0.25 * max_value, 1.1 * max_value]);
+          .domain([0, 8, 0.5 * max_value, 1.1 * max_value]);
         return color(d.value) || '#ff4500';
       })
       .style('opacity', 0)
@@ -1366,7 +1366,7 @@ export class CalendarHeatmap {
       .attr('fill', (d: CalendarHeatmapDataSummary) => {
         var color = d3.scaleLinear<string>()
           .range(['#adebad', '#a5cd65', '#eeb93b', this.color])
-          .domain([0, 8, 0.25 * max_value, 1.1 * max_value]);
+          .domain([0, 8, 0.5 * max_value, 1.1 * max_value]);
         return color(d.value) || '#ff4500';
       })
       .style('opacity', 0)

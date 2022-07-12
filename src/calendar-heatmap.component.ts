@@ -513,8 +513,8 @@ export class CalendarHeatmap {
 
     // Calculate max value of all the years in the dataset
     var max_value = d3.max(year_data, (d: any) => {
-      if (d.summary.length > 0) {
-        return d.summary[0].hh;
+      if (d.details.length > 0) {
+        return d.details[0].hh;
       } else {
         return d.total;
       }
@@ -701,8 +701,8 @@ export class CalendarHeatmap {
 
     // Calculate max value of the year data
     var max_value = d3.max(year_data, (d: any) => {
-      if (d.summary.length > 0) {
-        return d.summary[0].hh;
+      if (d.details.length > 0) {
+        return d.details[0].hh;
       } else {
         return d.total;
       }

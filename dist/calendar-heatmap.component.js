@@ -385,7 +385,11 @@ var CalendarHeatmap = /** @class */ (function () {
         });
         // Calculate max value of all the years in the dataset
         var /** @type {?} */ max_value = d3.max(year_data, function (d) {
-            return d.total;
+            if (d.summary.length > 0) {
+                return d.summary[0].hh;
+            } else {
+                return d.total;
+            }
         });
         // Define year labels and axis
         var /** @type {?} */ year_labels = d3.timeYears(start, end).map(function (d) {
@@ -416,7 +420,7 @@ var CalendarHeatmap = /** @class */ (function () {
             .attr('fill', function (d) {
             var /** @type {?} */ color = d3.scaleLinear()
                 .range(['#adebad', '#a5cd65', '#eeb93b', this.color || '#ff4500'])
-                .domain([0, 8, 0.5 * (d.hh ? d.hh : max_value), 1.1 * (d.hh ? d.hh : max_value)]);
+                .domain([0, 8, 0.5 * max_value, 1.1 * max_value]);
             return color(d.total) || '#ff4500';
         })
             .on('click', function (d) {
@@ -561,7 +565,11 @@ var CalendarHeatmap = /** @class */ (function () {
         });
         // Calculate max value of the year data
         var /** @type {?} */ max_value = d3.max(year_data, function (d) {
-            return (d.hh ? d.hh : d.total);
+            if (d.summary.length > 0) {
+                return d.summary[0].hh;
+            } else {
+                return d.total;
+            }
         });
         var /** @type {?} */ color = d3.scaleLinear()
             .range(['#adebad', '#a5cd65', '#eeb93b', this.color])
@@ -938,7 +946,7 @@ var CalendarHeatmap = /** @class */ (function () {
             .attr('fill', function (d) {
             var /** @type {?} */ color = d3.scaleLinear()
                 .range(['#adebad', '#a5cd65', '#eeb93b', this.color])
-                .domain([0, 8, 0.5 * (d.hh ? d.hh : max_value), 1.1 * (d.hh ? d.hh : max_value)]);
+                .domain([0, 8, 0.5 * max_value, 1.1 * max_value]);
             return color(d.value) || '#ff4500';
         })
             .style('opacity', 0)
@@ -1206,7 +1214,7 @@ var CalendarHeatmap = /** @class */ (function () {
             .attr('fill', function (d) {
             var /** @type {?} */ color = d3.scaleLinear()
                 .range(['#adebad', '#a5cd65', '#eeb93b', this.color])
-                .domain([0, 8, 0.5 * (d.hh ? d.hh : max_value), 1.1 * (d.hh ? d.hh : max_value)]);
+                .domain([0, 8, 0.5 * max_value, 1.1 * max_value]);
             return color(d.value) || '#ff4500';
         })
             .style('opacity', 0)

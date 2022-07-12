@@ -16,16 +16,19 @@ export interface CalendarHeatmapChangeEvent {
 export interface CalendarHeatmapDataSummary {
   name: string;
   value: number;
+  hh?: number;
 }
 export interface CalendarHeatmapDataDetail extends CalendarHeatmapItem {
   name: string;
   value: number;
+  hh?: number;
 }
 
 export interface CalendarHeatmapData extends CalendarHeatmapItem {
   details?: CalendarHeatmapDataDetail[];
   summary?: CalendarHeatmapDataSummary[];
   total?: number;
+  hh?: number;
 }
 
 @Component({
@@ -541,7 +544,7 @@ export class CalendarHeatmap {
       .attr('fill', (d: CalendarHeatmapData) => {
         var color = d3.scaleLinear<string>()
           .range(['#adebad', '#a5cd65', '#eeb93b', this.color || '#ff4500'])
-          .domain([0, 8, 0.5 * max_value, 1.1 * max_value]);
+          .domain([0, 8, 0.5 * (d.hh ? d.hh : max_value), 1.1 * (d.hh ? d.hh : max_value)]);
         return color(d.total) || '#ff4500';
       })
       .on('click', (d: CalendarHeatmapData) => {
@@ -692,7 +695,7 @@ export class CalendarHeatmap {
 
     // Calculate max value of the year data
     var max_value = d3.max(year_data, (d: any) => {
-      return d.total;
+      return (d.hh ? d.hh : d.total);
     });
 
     var color = d3.scaleLinear<string>()
@@ -1088,7 +1091,7 @@ export class CalendarHeatmap {
       .attr('fill', (d: CalendarHeatmapDataSummary) => {
         var color = d3.scaleLinear<string>()
           .range(['#adebad', '#a5cd65', '#eeb93b', this.color])
-          .domain([0, 8, 0.5 * max_value, 1.1 * max_value]);
+          .domain([0, 8, 0.5 * (d.hh ? d.hh : max_value), 1.1 * (d.hh ? d.hh : max_value)]);
         return color(d.value) || '#ff4500';
       })
       .style('opacity', 0)
@@ -1366,7 +1369,7 @@ export class CalendarHeatmap {
       .attr('fill', (d: CalendarHeatmapDataSummary) => {
         var color = d3.scaleLinear<string>()
           .range(['#adebad', '#a5cd65', '#eeb93b', this.color])
-          .domain([0, 8, 0.5 * max_value, 1.1 * max_value]);
+          .domain([0, 8, 0.5 * (d.hh ? d.hh : max_value), 1.1 * (d.hh ? d.hh : max_value)]);
         return color(d.value) || '#ff4500';
       })
       .style('opacity', 0)

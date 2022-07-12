@@ -476,6 +476,7 @@ export class CalendarHeatmap {
       var date = moment(d);
       return <CalendarHeatmapData>{
         'date': d,
+        'hh': null,
         'total': data.reduce((prev: number, current: any) => {
           if (moment(current.date).year() === date.year()) {
             prev += current.total;

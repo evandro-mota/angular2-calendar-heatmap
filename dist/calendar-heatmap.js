@@ -417,7 +417,7 @@ var CalendarHeatmap = /** @class */ (function () {
             .attr('fill', function (d) {
             var /** @type {?} */ color = scaleLinear()
                 .range(['#adebad', '#a5cd65', '#eeb93b', this.color || '#ff4500'])
-                .domain([0, 8, 0.5 * max_value, 1.1 * max_value]);
+                .domain([0, 8, 0.5 * (d.hh ? d.hh : max_value), 1.1 * (d.hh ? d.hh : max_value)]);
             return color(d.total) || '#ff4500';
         })
             .on('click', function (d) {
@@ -562,7 +562,7 @@ var CalendarHeatmap = /** @class */ (function () {
         });
         // Calculate max value of the year data
         var /** @type {?} */ max_value = max(year_data, function (d) {
-            return d.total;
+            return (d.hh ? d.hh : d.total);
         });
         var /** @type {?} */ color = scaleLinear()
             .range(['#adebad', '#a5cd65', '#eeb93b', this.color])
@@ -939,7 +939,7 @@ var CalendarHeatmap = /** @class */ (function () {
             .attr('fill', function (d) {
             var /** @type {?} */ color = scaleLinear()
                 .range(['#adebad', '#a5cd65', '#eeb93b', this.color])
-                .domain([0, 8, 0.5 * max_value, 1.1 * max_value]);
+                .domain([0, 8, 0.5 * (d.hh ? d.hh : max_value), 1.1 * (d.hh ? d.hh : max_value)]);
             return color(d.value) || '#ff4500';
         })
             .style('opacity', 0)
@@ -1207,7 +1207,7 @@ var CalendarHeatmap = /** @class */ (function () {
             .attr('fill', function (d) {
             var /** @type {?} */ color = scaleLinear()
                 .range(['#adebad', '#a5cd65', '#eeb93b', this.color])
-                .domain([0, 8, 0.5 * max_value, 1.1 * max_value]);
+                .domain([0, 8, 0.5 * (d.hh ? d.hh : max_value), 1.1 * (d.hh ? d.hh : max_value)]);
             return color(d.value) || '#ff4500';
         })
             .style('opacity', 0)

@@ -7,6 +7,7 @@ export declare type UnaryFunction<T, R> = (source: T) => R;
 export enum OverviewType { global, year, month, week, day };
 export interface CalendarHeatmapItem {
   date?: Date;
+  hh?: number;
 }
 export interface CalendarHeatmapChangeEvent {
   overview: OverviewType;

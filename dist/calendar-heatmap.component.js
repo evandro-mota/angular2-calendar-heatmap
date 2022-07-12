@@ -348,6 +348,7 @@ var CalendarHeatmap = /** @class */ (function () {
             var /** @type {?} */ date = moment(d);
             return /** @type {?} */ ({
                 'date': d,
+                'hh': null,
                 'total': data.reduce(function (prev, current) {
                     if (moment(current.date).year() === date.year()) {
                         prev += current.total;

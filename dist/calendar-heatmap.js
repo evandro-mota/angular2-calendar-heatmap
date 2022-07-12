@@ -387,8 +387,8 @@ var CalendarHeatmap = /** @class */ (function () {
         });
         // Calculate max value of all the years in the dataset
         var /** @type {?} */ max_value = max(year_data, function (d) {
-            if (d.summary.length > 0) {
-                return d.summary[0].hh;
+            if (d.details.length > 0) {
+                return d.details[0].hh;
             } else {
                 return d.total;
             }
@@ -567,8 +567,8 @@ var CalendarHeatmap = /** @class */ (function () {
         });
         // Calculate max value of the year data
         var /** @type {?} */ max_value = max(year_data, function (d) {
-            if (d.summary.length > 0) {
-                return d.summary[0].hh;
+            if (d.details.length > 0) {
+                return d.details[0].hh;
             } else {
                 return d.total;
             }

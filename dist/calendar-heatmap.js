@@ -387,11 +387,7 @@ var CalendarHeatmap = /** @class */ (function () {
         });
         // Calculate max value of all the years in the dataset
         var /** @type {?} */ max_value = max(year_data, function (d) {
-            if (d.details.length > 0) {
-                return d.details[0].hh;
-            } else {
-                return d.total;
-            }
+            return d.total;
         });
         // Define year labels and axis
         var /** @type {?} */ year_labels = timeYears(start, end).map(function (d) {

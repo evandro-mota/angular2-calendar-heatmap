@@ -513,11 +513,7 @@ export class CalendarHeatmap {
 
     // Calculate max value of all the years in the dataset
     var max_value = d3.max(year_data, (d: any) => {
-      if (d.details.length > 0) {
-        return d.details[0].hh;
-      } else {
-        return d.total;
-      }
+      return d.total;
     });
 
     // Define year labels and axis
